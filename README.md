@@ -83,3 +83,26 @@ This makes our server start listening on the port specified by the PORT environm
 That's it for the basic server.js setup! As we proceed, we'll add more routes and functionalities for our CRUD operations.
 
 Next, we'll connect our server to a MongoDB database using Mongoose, a popular object modeling tool for MongoDB in Node.js. This will be followed by defining data models and routes for our application.
+
+# Mongoose Setup
+[Mongoose](https://mongoosejs.com/) is a MongoDB object modeling tool designed to work in an asynchronous environment. It provides a straightforward, schema-based solution to model your application data. Let's set up Mongoose to connect to our MongoDB:
+
+```javascript
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB Connected...'))
+  .catch(err => console.log(err));
+```
+
+Here, we're requiring the `mongoose` module and using `mongoose.connect()` to connect to our MongoDB database. We're passing in `process.env.DB_CONNECTION` as our database connection string, which should be stored in our .env file.
+
+This connection string should be provided by your MongoDB provider. If you're using a service like MongoDB Atlas, you'll find this connection string in your dashboard.
+
+The two options we're passing - `useNewUrlParser` and `useUnifiedTopology` - are both optional but are generally included as they handle deprecation warnings you might encounter.
+
+After our connection to MongoDB, we're using a Promise `.then().catch()` block to handle the connection success or error scenario. If the promise is resolved (the database was successfully connected), we log a success message. If the promise is rejected (there was an error connecting), we log the error.
+
+In the next steps, we'll create data models using Mongoose and implement our CRUD functionality.
+
+Remember: Always structure your application in a way that's scalable and easy to navigate. Splitting your code into separate modules based on functionality can help with this. For instance, you could have separate files for your Mongoose models, your routes, and your middleware.
