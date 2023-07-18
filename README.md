@@ -83,5 +83,3 @@ This makes our server start listening on the port specified by the PORT environm
 That's it for the basic server.js setup! As we proceed, we'll add more routes and functionalities for our CRUD operations.
 
 Next, we'll connect our server to a MongoDB database using Mongoose, a popular object modeling tool for MongoDB in Node.js. This will be followed by defining data models and routes for our application.
-
-Remember, while learning, it's okay to ask questions and look up concepts you are not familiar with. Always take a step back to understand what each line of code is doing. Happy coding!
